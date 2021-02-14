@@ -6,3 +6,10 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+//todo mi diseño esta en mis archivos css en la carpeta assets
+@import "../assets/css/styleMain";
+@import "../assets/css/utilAuth";
+@import "../assets/css/mainAuth";
+@import "../assets/css/styleAdmin";
+@import "../assets/css/sb-admin-2.min.css";

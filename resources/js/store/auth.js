@@ -8,7 +8,7 @@ export default{
     },
     getters:{
         authenticated(state){
-        return state.authenticated
+        return state.authenticated  
         },
         user(state){
             return state.user
@@ -23,7 +23,7 @@ export default{
         },
     },
     actions:{
-        async signIn({dispatch},crendetials){ 
+        async IniciarSesion({dispatch},crendetials){ 
             console.log(crendetials)
             console.log('reciviendo formulario y enviando a backend')
             await axios.get('/sanctum/csrf-cookie')
