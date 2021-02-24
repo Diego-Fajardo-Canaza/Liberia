@@ -5,15 +5,17 @@
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0" v-if="!authenticated">
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#inicio">INICIO</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Services</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
                         <li class="nav-item">
-                            <router-link to="/signin" class="nav-link js-scroll-trigger" > inicio de sesion | </router-link>
+                            <a class="nav-link js-scroll-trigger" href="#inicio" >Inicio_de_la_Página </a>
+                        </li>
+                        <!--<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>-->
+                        <!--<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Services</a></li>-->
+                        <!--<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>-->
+                        <li class="nav-item">
+                            <router-link to="/signin" class="nav-link js-scroll-trigger" > inicio de sesion  </router-link>
                         </li>
                         <li class="nav-item">
-                            <router-link to="/signup" class="nav-link js-scroll-trigger"> Registro | </router-link>
+                            <router-link to="/signup" class="nav-link js-scroll-trigger"> Registro  </router-link>
                         </li>
                     </ul>
                     <ul class="navbar-nav ml-auto my-2 my-lg-0" v-else>

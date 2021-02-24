@@ -1,10 +1,15 @@
 <template>
     <div class="row">
-        <div class="col-lg-6" v-for="(post,index) in getposts.data" :key="index">
-            <div class="card shadow mb-4">
+        <div class="col-lg-3 mb-4 " v-for="(post,index) in getposts.data" :key="index">
+            <div class="card shadow mb-4 h-100">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary"> {{post.title}}</h6>
+                    <h6 class="m-0 font-weight-bold text-primary"> 
+                        <!--<router-link :to="'detail-post/'+post.path">
+                            {{post.title}}
+                        </router-link>-->
+                        <router-link :to="{name: 'dashboard.detailpost', params:{slug: post.path}}">{{post.title}}</router-link>
+                    </h6>
                     <div class="dropdown no-arrow">
                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">

@@ -44277,7 +44277,7 @@ input.input100 {
 }
 
 .label-checkbox100::before {
-  content: "";
+  content: "?";
   font-family: FontAwesome;
   font-size: 13px;
   color: transparent;
@@ -44377,7 +44377,7 @@ input.input100 {
 }
 
 .alert-validate::after {
-  content: "";
+  content: "?";
   font-family: FontAwesome;
   display: block;
   position: absolute;

@@ -38,7 +38,7 @@
 							<span class="focus-input100"></span>
 						</div>
 
-						<div class="flex-sb-m w-full p-b-30">
+						<!--<div class="flex-sb-m w-full p-b-30">
 							<div class="contact100-form-checkbox">
 								<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
 								<label class="label-checkbox100" for="ckb1">
@@ -51,7 +51,7 @@
 									olvidaste tu contraseña ?
 								</a>
 							</div>
-						</div>
+						</div>-->
 
 						<div class="container-login100-form-btn">
 							<button class="login100-form-btn">
@@ -68,11 +68,6 @@
 	
     </body>
 </template>
-
-    <!--<style scoped>
-        @import url('../../css/mainAuth');
-        @import url('../../css/utilAuth');
-    </style> --> 
 
 <script>
 import {mapActions } from 'vuex'
@@ -93,12 +88,71 @@ export default {
         ...mapActions({
             singIn:'auth/IniciarSesion'
         }),
-        async submit(){ 
-            console.log('ENVIANDO FORMULARIO') 
-            console.log(this.form)
-            await this.singIn(this.form) 
-            this.$router.replace({name:'dashboard.post'})
+        async submit(){
+			try {
+				await this.signIn(this.form)
+				this.$router.replace({name:'dashboard.post'})	
+			} catch (error) {
+				let msgError = ''
+				let obj = error.response.data.errors
+				for(var prop in obj){
+					if(!obj.hasOwnProperty(prop)) continue
+					obj[prop].forEach(element => {
+						msgError = element + ' ' + msgError
+					});
+				}
+				this.$swal({
+						title: 'Error!',
+						text: 'error de inicio de sesion',
+						imageUrl: 'https://i.ytimg.com/vi/NToMpvmpD08/hqdefault.jpg',
+						imageWidth: 400,
+						imageHeight: 200,
+						imageAlt: msgError,
+				})
+			}
         }
     }
-} 
+}
 </script>  
+<!--<script>
+import {mapActions} from 'vuex'
+import NavHome from '../components/NavHome'
+export default {
+	name:'SignIn',
+	components:{NavHome},
+    data(){
+        return {
+            form:{
+                email:'',
+                password:''
+			},
+			color:'black'
+        }
+    },
+    methods:{
+        ...mapActions({
+            signIn:'auth/signIn'
+        }),
+        async submit(){
+			try {
+				await this.signIn(this.form)
+				this.$router.replace({name:'dashboard.post'})	
+			} catch (error) {
+				let msgError = ''
+				let obj = error.response.data.errors
+				for(var prop in obj){
+					if(!obj.hasOwnProperty(prop)) continue
+					obj[prop].forEach(element => {
+						msgError = element + ' ' + msgError
+					});
+				}
+				this.$swal({
+					icon: 'error',
+					title: 'Oops...',
+					text: msgError,
+				})
+			}
+        }
+    }
+}
+</script>-->

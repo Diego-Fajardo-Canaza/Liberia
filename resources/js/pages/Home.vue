@@ -37,29 +37,29 @@
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
                             <i class="fas fa-4x fa-gem text-primary mb-4"></i>
-                            <h3 class="h4 mb-2">Sturdy Themes</h3>
-                            <p class="text-muted mb-0">Our themes are updated regularly to keep them bug free!</p>
+                            <h3 class="h4 mb-2"> La busqueda es dura como diamante</h3>
+                            <p class="text-muted mb-0">busca los libros a tu mejor preferencia </p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
                             <i class="fas fa-4x fa-laptop-code text-primary mb-4"></i>
-                            <h3 class="h4 mb-2">Up to Date</h3>
-                            <p class="text-muted mb-0">All dependencies are kept current to keep things fresh.</p>
+                            <h3 class="h4 mb-2">descarga tus libros de forma pirata</h3>
+                            <p class="text-muted mb-0">busca la forma de descargarla en forma pirata </p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
                             <i class="fas fa-4x fa-globe text-primary mb-4"></i>
-                            <h3 class="h4 mb-2">Ready to Publish</h3>
-                            <p class="text-muted mb-0">You can use this design as is, or you can make changes!</p>
+                            <h3 class="h4 mb-2">sube tus propio libros para ayudar a los demas</h3>
+                            <p class="text-muted mb-0">si tienes libros que quieras compartir puedes hacerlo aqui</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="mt-5">
                             <i class="fas fa-4x fa-heart text-primary mb-4"></i>
-                            <h3 class="h4 mb-2">Made with Love</h3>
-                            <p class="text-muted mb-0">Is it really open source if it's not made with love?</p>
+                            <h3 class="h4 mb-2">una comunidad unida creo</h3>
+                            <p class="text-muted mb-0">de esta manera podremos ayudarnos a todos</p>
                         </div>
                     </div>
                 </div>

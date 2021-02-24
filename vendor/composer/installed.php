@@ -1,12 +1,12 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
+    'pretty_version' => 'dev-master',
+    'version' => 'dev-master',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => '97c4494847717558e5548188979a95272b5f83d1',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -440,12 +440,12 @@
     ),
     'laravel/laravel' => 
     array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => '97c4494847717558e5548188979a95272b5f83d1',
     ),
     'laravel/sail' => 
     array (
@@ -482,6 +482,15 @@
       array (
       ),
       'reference' => 'a1f82c6283c8373ea1958b8a27c3d5c98cade351',
+    ),
+    'laraveles/spanish' => 
+    array (
+      'pretty_version' => '1.5.0',
+      'version' => '1.5.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '2224e3db7ec399952523b0769a7677de0b6afd8b',
     ),
     'league/commonmark' => 
     array (

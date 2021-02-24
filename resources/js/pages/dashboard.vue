@@ -68,7 +68,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">>mis publicaciones :</h6>
                         <router-link :to="{name:'dashboard.createpost'}" class="collapse-item" >Crear Publicación</router-link >
-                        <router-link :to="{name:'dashboard.createpost'}" class="collapse-item" >Publicaciones </router-link >
+                        <router-link :to="{name:'dashboard.userpost'}" class="collapse-item" >Publicaciones </router-link >
                         <!--<a class="collapse-item" href="cards.html">Cards</a>-->
                     </div>
                 </div>
@@ -146,7 +146,7 @@
 
             <!-- Sidebar Message -->
             <div class="sidebar-card">
-                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="">
+                <img class="sidebar-card-illustration mb-2" src="/resources/assets/images/akhl5Aj.png" alt="">
                 <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
                 <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
             </div>

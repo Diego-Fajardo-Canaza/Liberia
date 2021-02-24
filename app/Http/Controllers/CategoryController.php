@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -13,8 +14,9 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {     
+        $category = Category::all();
+        return response()->json($category);
     }
 
     /**

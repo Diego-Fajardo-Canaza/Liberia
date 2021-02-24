@@ -6,8 +6,12 @@ import SignUp from '../pages/SignUp'
 import Dashboard from '../pages/Dashboard'
 import Posts from '../pages/Posts'
 import CreatePost from '../pages/CreatePost'
+import UserPosts from '../pages/UserPosts'
+import DetailPost from '../pages/DetailPost'
+import EditPost from '../pages/EditPost'
  
 Vue.use(VueRouter)
+
 const routes =[
     {path:'/',name:'home',component:Home},
     {path:'/signin',name:'signin',component:SignIn},
@@ -23,6 +27,21 @@ const routes =[
                 path: 'post-create',
                 name:'dashboard.createpost',
                 component: CreatePost
+            },
+            {
+                path: 'user-post',
+                name:'dashboard.userpost',
+                component: UserPosts
+            },
+            {
+                path: 'detail-post/:slug',
+                name:'dashboard.detailpost',
+                component: DetailPost
+            },
+            {
+                path:'edit-post/:slug',
+                name:'dashboard.editpost',
+                component: EditPost
             },
         ]
     },
