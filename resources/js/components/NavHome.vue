@@ -6,7 +6,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0" v-if="!authenticated">
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#inicio" >Inicio_de_la_Página </a>
+                            <a class="nav-link js-scroll-trigger" href="#inicio" >Inicio</a>
                         </li>
                         <!--<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>-->
                         <!--<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Services</a></li>-->

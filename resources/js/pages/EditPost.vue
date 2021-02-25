@@ -22,9 +22,14 @@
                             <input class="form-control" id="image" name="image"  type="file" placeholder="Subir Imagen" v-on:change="onImageChange">
                         </div>
                         <div class="form-group">
+                            <label for="title">Documento</label>
+                            <input class="form-control" id="file" name="file"  type="file" placeholder="Subir documento" v-on:change="onImageChange">
+                        </div>
+                        <div class="form-group">
                             <label for="body">Contenido</label>
                             <textarea class="form-control" id="body" rows="3" v-model="getPost.body"></textarea>
                         </div>
+                        
                         <button type="submit" class="btn btn-primary btn-lg btn-block">Editar Publicacion</button>
                     </form>
             </div>

@@ -44,12 +44,13 @@
             </div>
         </div>
     </div>
+    
 </template>
 <script>
 import {mapGetters, mapActions} from 'vuex'
 export default {
     name:'UserPosts',
-    computed:{ 
+    computed:{
         ...mapGetters({
             get_posts_user:'post/get_posts_user'
         })
@@ -58,7 +59,9 @@ export default {
         ...mapActions({
             get_all_post_user:'post/getAllPostUser',
             delete_post:'post/deletePost',
+
         }),
+        //editPost(e){
         editPost(paramSlug){
             //this.$router.replace({name:'dashboard.editpost',params:{slug:$(e.currentTarget).attr('post-edit')}})
             this.$router.replace({name:'dashboard.editpost',params:{slug:paramSlug}})

@@ -9,17 +9,15 @@ import CreatePost from '../pages/CreatePost'
 import UserPosts from '../pages/UserPosts'
 import DetailPost from '../pages/DetailPost'
 import EditPost from '../pages/EditPost'
- 
 Vue.use(VueRouter)
-
-const routes =[
+const routes = [
     {path:'/',name:'home',component:Home},
     {path:'/signin',name:'signin',component:SignIn},
-    {path:'/signup',name:'singup',component:SignUp},
-    {path:'/dashboard',name:'dashboard',component:Dashboard, children: 
+    {path:'/signup',name:'signup',component:SignUp},
+    {path:'/dashboard',name:'dashboard',component:Dashboard,children:
         [
             {
-                path: 'post', 
+                path: 'post',
                 name:'dashboard.post',
                 component: Posts
             },
@@ -39,19 +37,16 @@ const routes =[
                 component: DetailPost
             },
             {
-                path:'edit-post/:slug',
+                path: 'edit-post/:slug',
                 name:'dashboard.editpost',
                 component: EditPost
             },
         ]
     },
 ]
-
 const router = new VueRouter({
-    mode: 'history', 
-    base: process.env.BASE_URL,
-    routes,
+    mode:'history',
+    base:process.env.BASE_URL,
+    routes
 })
-
-export default router  
-
+export default router

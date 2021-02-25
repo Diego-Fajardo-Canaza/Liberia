@@ -145,7 +145,7 @@ class PostController extends Controller
             return response()->json(['state'=>'Editado con exito'], 200);
         }else{
             return response()->json(['state'=>'NO LE PERTENECE LA PUBLICACION'], 401);
-        } 
+        }
 
     }
 

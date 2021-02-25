@@ -74,7 +74,7 @@ export default {
             console.log(data)
             console.log('actualizando publicacion')
             await axios.get('/sanctum/csrf-cookie')
-            let edit = await axios.post(`/api/posts/${data.parameter}`,data.formdata,data.config) // metodo de modelo controlador de laravel por defecto 
+            await axios.post(`/api/posts/${data.parameter}`,data.formdata,data.config) // metodo de modelo controlador de laravel por defecto 
             //let edit = await axios.post('/api/post/update-my-post',data.formdata,data.config)//mi propio metodo de actualizacion 
         },   
         async deletePost({dispatch},parameter){

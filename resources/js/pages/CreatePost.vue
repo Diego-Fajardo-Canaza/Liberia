@@ -22,10 +22,6 @@
                             <input class="form-control" id="image" name="image"  type="file" placeholder="Subir Imagen" v-on:change="onImageChange">
                         </div>
                         <div class="form-group">
-                            <label for="title">Documento</label>
-                            <input class="form-control" id="file" name="file"  type="file" placeholder="Subir documento" v-on:change="onImageChange">
-                        </div>
-                        <div class="form-group">
                             <label for="body">Contenido</label>
                             <textarea class="form-control" id="body" rows="3" v-model="form.body"></textarea>
                         </div>
@@ -40,7 +36,7 @@ import {mapActions, mapGetters} from 'vuex'
 export default {
     name:'Posts',
     data(){
-        return {    
+        return {
             form:{
                 title:'',
                 category:'',
@@ -83,6 +79,7 @@ export default {
                 config:config,
                 formdata:formData
             }
+
             try {
                 await this.send_create_post(data)   
                 $('#createPost')[0].reset()
@@ -108,8 +105,7 @@ export default {
 						imageWidth: 400,
 						imageHeight: 200,
 						imageAlt: msgError,
-				})
-                
+				})                
             }
         },
     },
@@ -118,3 +114,6 @@ export default {
     }
 }
 </script>
+
+
+				
