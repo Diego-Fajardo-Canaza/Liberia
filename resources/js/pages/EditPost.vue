@@ -71,7 +71,7 @@ export default {
                 title:$('#title').val(),
                 category:$('#category').val(),
                 body:$('#body').val(),
-                idpost:this.getPost.id //  esto para el mi propio metodo para actualizar
+                idpost:this.getPost.id // esto para el mi propio metodo para actualizar
             }
             
             
@@ -107,3 +107,32 @@ export default {
     }
 }
 </script>
+
+ <!--try {
+                await this.edit_post(data)
+                $('#editPost')[0].reset()
+                this.$swal({
+                    	title: 'EDITADO!',
+						text: 'editado correctamente',
+						imageUrl: 'https://img.wattpad.com/005d5b366714d7927614652c2cdb63673a9480d3/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f776174747061642d6d656469612d736572766963652f53746f7279496d6167652f4f2d33697348724a3347703149513d3d2d3434383138323736342e313464356536663163393963623063363230353839353132333939372e6a7067?s=fit&w=720&h=720',
+						imageWidth: 400,
+						imageHeight: 200,
+                })
+            } catch (error) {
+                let msgError = ''
+				let obj = error.response.data.errors
+				for(var prop in obj){
+					if(!obj.hasOwnProperty(prop)) continue
+					obj[prop].forEach(element => {
+						msgError = element + ' ' + msgError
+					});
+				}
+				this.$swal({
+						title: 'Error!',
+						text: 'error al editar publicacion',
+						imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf6po1wpCNAaqO4i_By9ww0nT-9BxkyBHekw&usqp=CAU',
+						imageWidth: 400,
+						imageHeight: 200,
+						imageAlt: msgError,
+				})                
+            }-->

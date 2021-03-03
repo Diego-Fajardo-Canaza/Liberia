@@ -85,7 +85,7 @@ export default {
     },
     methods:{
         ...mapActions({
-            signIn:'auth/signIn'
+            signIn:'auth/IniciarSesion'
         }),
         async submit(){
 			try {
@@ -101,10 +101,13 @@ export default {
 					});
 				}
 				this.$swal({
-					icon: 'error',
-					title: 'Oops...',
-					text: msgError,
-				})
+						title: 'Error!',
+						text: 'error de inicio de sesion',
+						imageUrl: 'https://i.ytimg.com/vi/NToMpvmpD08/hqdefault.jpg',
+						imageWidth: 400,
+						imageHeight: 200,
+						imageAlt: msgError,
+				})   
 			}
         }
     }

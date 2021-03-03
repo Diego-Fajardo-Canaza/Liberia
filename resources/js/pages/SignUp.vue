@@ -29,7 +29,7 @@
 		</div>
 		<!-- copyright -->
 		<div class="colorlibcopy-agile">
-			<p>© Todos los derechos reservados Tecnologias Emergentes 2021 <a href="https://colorlib.com/" target="_blank">Colorlib</a></p>
+			<p>© Todos los derechos A mi  2021 <a href="https://colorlib.com/" target="_blank">Colorlib</a></p>
 		</div>
 		<!-- //copyright -->
 		<ul class="colorlib-bubbles">
@@ -62,12 +62,13 @@ export default {
                 email:'',
                 password:'',
                 password_confirmation:''
-            }
+            },
+            color:'black'
         }
     },
     methods: {
         ...mapActions({
-            send:'auth/signUp'
+            signUp:'auth/signUp'
         }),
         async submit(){
             await this.send(this.form)

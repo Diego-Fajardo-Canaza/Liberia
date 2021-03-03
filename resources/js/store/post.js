@@ -5,7 +5,8 @@ export default {
     state:{
        allposts:[],
        allpostsuser:[],
-       detailpost:{} 
+       detailpost:{},
+       publicaciones:[],
     },
     getters:{
         reponsePosts(state){
@@ -16,6 +17,9 @@ export default {
         },
         detail_post(state){
             return state.detailpost
+        },
+        get_publicaciones(state){
+            return state.publicaciones
         }
     },
     mutations:{
@@ -28,6 +32,9 @@ export default {
         SET_DETAIL_POST(state,value){
             state.detailpost = value
         },
+        SET_PUBLICACIONES(state,value){
+            state.publicaciones = value
+        }
     },
     actions:{
         async getAllPost({dispatch}){
@@ -37,6 +44,17 @@ export default {
             const data ={
                 type:'allpost',
                 data:gp.data  
+            }
+            return dispatch('mePosts',data)
+        },
+        
+        async get_todas_publicaciones({dispatch}){
+            console.log('solicitando todas las publicaciones sin iniciar sesion')
+            await axios.get('/sanctum/csrf-cookie')
+            let todas = await axios.get('/api/todas-las-publicaciones')
+            const data ={
+                type:'todas_las_publicaciones',
+                data:todas.data
             }
             return dispatch('mePosts',data)
         },
@@ -59,7 +77,7 @@ export default {
             return dispatch('mePosts',data)
         },
         async detailPost({dispatch},parameter){
-            console.log('solicitando el detalle de la publicacion') 
+            console.log('solicitando el detalle del libro') 
             console.log(parameter)
             await axios.get('/sanctum/csrf-cookie')
             let detail = await axios.get('/api/posts/'+parameter)
@@ -74,8 +92,8 @@ export default {
             console.log(data)
             console.log('actualizando publicacion')
             await axios.get('/sanctum/csrf-cookie')
-            await axios.post(`/api/posts/${data.parameter}`,data.formdata,data.config) // metodo de modelo controlador de laravel por defecto 
-            //let edit = await axios.post('/api/post/update-my-post',data.formdata,data.config)//mi propio metodo de actualizacion 
+            //await axios.post(`/api/posts/${data.parameter}`,data.formdata,data.config) // metodo de modelo controlador de laravel por defecto 
+            let edit = await axios.post('/api/post/update-my-post',data.formdata,data.config)//mi propio metodo de actualizacion 
         },   
         async deletePost({dispatch},parameter){
             console.log(parameter)
@@ -87,7 +105,7 @@ export default {
                 alert(error)
             })
         },
-        mePosts({commit},data){
+        mePosts({commit},data){ 
             //console.log(getAllPost)
             //commit('SET_ALL_POSTS',getAllPost)
 
@@ -99,8 +117,11 @@ export default {
                     commit('SET_ALL_POSTS',data.data)
                     break;
                 case 'detailpost':
-                    console.log(data.data)
                     commit('SET_DETAIL_POST',data.data)
+                    break;
+                case 'todas_las_publicaciones':
+                    console.log(data.data)
+                    commit('SET_PUBLICACIONES',data.data)
                     break;
                 default:
                     break;

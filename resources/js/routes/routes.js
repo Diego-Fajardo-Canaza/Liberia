@@ -9,7 +9,11 @@ import CreatePost from '../pages/CreatePost'
 import UserPosts from '../pages/UserPosts'
 import DetailPost from '../pages/DetailPost'
 import EditPost from '../pages/EditPost'
+import CreateCategory from '../pages/CreateCategory'
+import AllCategory from '../pages/AllCategory'
+
 Vue.use(VueRouter)
+
 const routes = [
     {path:'/',name:'home',component:Home},
     {path:'/signin',name:'signin',component:SignIn},
@@ -40,6 +44,16 @@ const routes = [
                 path: 'edit-post/:slug',
                 name:'dashboard.editpost',
                 component: EditPost
+            },
+            {
+                path: 'category-create',
+                name:'dashboard.createCategory',
+                component: CreateCategory
+            },
+            {
+                path: 'category-all',
+                name:'dashboard.allCategory',
+                component: AllCategory
             },
         ]
     },

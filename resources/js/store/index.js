@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import auth from './auth'
 import post from './post'
 import category from './category'
+import comment from './comment'
 
 Vue.use(Vuex)
 export default new Vuex.Store({
@@ -10,6 +11,7 @@ export default new Vuex.Store({
         auth,
         post,
         category,
+        comment,
         //aqui van  los demas modulos   
     }
 }) 

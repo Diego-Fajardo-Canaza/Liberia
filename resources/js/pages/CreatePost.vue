@@ -20,6 +20,7 @@
                         <div class="form-group">
                             <label for="title">Imagen</label>
                             <input class="form-control" id="image" name="image"  type="file" placeholder="Subir Imagen" v-on:change="onImageChange">
+                            <input class="form-control" id="file" name="file"  type="file" placeholder="subir documento" v-on:change="onFileChange">
                         </div>
                         <div class="form-group">
                             <label for="body">Contenido</label>
@@ -32,7 +33,7 @@
     </div>
 </template>
 <script>
-import {mapActions, mapGetters} from 'vuex'
+import {mapActions, mapGetters} from 'vuex'     
 export default {
     name:'Posts',
     data(){
@@ -42,7 +43,8 @@ export default {
                 category:'',
                 body:'',
             },
-            image:''
+            image:'',
+            file:''
         }
     },
     computed:{
@@ -58,14 +60,19 @@ export default {
         onImageChange(e){
             this.image = e.target.files[0]
         },
+        onFileChange(e){
+            this.file = e.target.files[0]
+        },
         async submit(){
             //await this.send_create_post(this.form)
             const config = {
                 headers:{'content-type':'multipart/form-data'}
             }
             console.log(this.image)
+            console.log(this.file)
             let formData = new FormData();
             //formData.append('image',this.image)
+            formData.append('file',this.file)
             formData.append('file',this.image)
             formData.append('form',JSON.stringify(this.form))
 
@@ -84,10 +91,11 @@ export default {
                 await this.send_create_post(data)   
                 $('#createPost')[0].reset()
                 this.$swal({
-                    icon: 'success',
-                    title: 'Creado correctamente',
-                    showConfirmButton: false,
-                    timer: 2500
+                    	title: 'creado!',
+						text: 'subido correctamente',     
+						imageUrl: 'https://img.wattpad.com/005d5b366714d7927614652c2cdb63673a9480d3/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f776174747061642d6d656469612d736572766963652f53746f7279496d6167652f4f2d33697348724a3347703149513d3d2d3434383138323736342e313464356536663163393963623063363230353839353132333939372e6a7067?s=fit&w=720&h=720',
+						imageWidth: 400,
+						imageHeight: 200,
                 })
             } catch (error) {
                 let msgError = ''
@@ -100,8 +108,8 @@ export default {
 				}
 				this.$swal({
 						title: 'Error!',
-						text: 'error de inicio de sesion',
-						imageUrl: 'https://i.ytimg.com/vi/NToMpvmpD08/hqdefault.jpg',
+						text: 'error al subir el libro',
+						imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf6po1wpCNAaqO4i_By9ww0nT-9BxkyBHekw&usqp=CAU',
 						imageWidth: 400,
 						imageHeight: 200,
 						imageAlt: msgError,

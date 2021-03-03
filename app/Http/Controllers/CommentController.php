@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
@@ -35,7 +36,16 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->all());
+        $data = $request->all();
+        //dd($data['name']);
+        Comment::create([
+            'body' => $data['body'],
+            'post_id' => $data['idpost'],
+            'user_id' => Auth::user()->id,
+            
+        ]);
+        return response()->json(['state'=>'Exito de creacion de comentario'], 200);
     }
 
     /**

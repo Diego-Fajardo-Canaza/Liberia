@@ -9,6 +9,7 @@
                             {{post.title}}
                         </router-link>-->
                         <router-link :to="{name: 'dashboard.detailpost', params:{slug: post.path}}">{{post.title}}</router-link>
+                        
                     </h6>
                     <div class="dropdown no-arrow">
                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
@@ -17,16 +18,17 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                             aria-labelledby="dropdownMenuLink">
-                            <div class="dropdown-header">Dropdown Header:</div>
+                            <div class="dropdown-header">Opciones:</div>
                             <a class="dropdown-item" href="#">Editar</a>
                             <a class="dropdown-item" href="#">Eliminar</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                            <div class="dropdown-divider"></div> 
+                            <!--<a class="dropdown-item" href="#">No hac</a>-->
                         </div>
                     </div>
                 </div>
                 <!-- Card Body -->
                 <img :src="post.photo" width="100%" height="300px"/>
+                <embed :src="post.file" width="100%" height="200px"/>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6">

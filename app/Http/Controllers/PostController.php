@@ -29,6 +29,16 @@ class PostController extends Controller
         return response()->json($posts);
     }
 
+    public function todas_las_publicaciones_para_home(){
+        Carbon::setlocale('es');
+        $posts = Post::latest()->paginate(15);
+        foreach($posts as $post){//8
+            $post->setAttribute('user',$post->user);
+            $post->setAttribute('added',Carbon::parse($post->created_at)->diffForHumans());
+            $post->setAttribute('path',$post->slug);
+        }
+        return response()->json($posts);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -40,7 +50,7 @@ class PostController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created resource in storage.  
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -49,6 +59,7 @@ class PostController extends Controller
     {
         if($request['file']){
             $imageName = time().'.'.$request['file']->getClientOriginalExtension();
+            $fileName = time().'.'.$request['file']->getClientOriginalExtension();
             //dd($imageName);
             $data = json_decode($request['form']);
             //dd($data['body']);
@@ -59,9 +70,12 @@ class PostController extends Controller
                 'body' => $data->body,
                 'category_id' => $data->category,
                 'user_id' => Auth::user()->id,
-                'photo' => '/uploads/'.$imageName
+                'photo' => '/uploads/'.$imageName, 
+                'file' =>'/archivos/' .$fileName
             ]);
             $request['file']->move(public_path('uploads'),$imageName);
+            
+            $request['file']->move(public_path('archivos'),$fileName);
     
             return response()->json(['state'=>'Exito de creacion de publicacion'], 200);
         }else{
@@ -85,7 +99,7 @@ class PostController extends Controller
             'title'=>$post->title,
             'body'=>$post->body,
             'photo'=>$post->photo,
-            'created_at'=>$post->created_at->diffForHumans(),
+            'created_at'=>$post->created_at->diffForHumans(),    
             'user'=>$post->user->name,
             'category'=>$post->category->name,
             'categoryId'=>$post->category->id,

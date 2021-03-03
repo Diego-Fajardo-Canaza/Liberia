@@ -17,13 +17,17 @@
         </header>
            <!-- About-->
         <section class="page-section bg-primary" id="about">
-            <div class="container">
-                <div class="row justify-content-center">
+            <div class="container" v-for="(post,index) in publicaciones.data" :key="index">
+                <div class="col-lg-6"> <img class="img-fluid"  :src="post.photo"  alt=""  /></div>
+                <br>
+                <div class="row justify-content-center" >
                     <div class="col-lg-8 text-center">
-                        <h2 class="text-white mt-0">registrate ahora para tener una busqueda Optimizada</h2>
+                        <h2 class="text-white mt-0"> {{post.title}}</h2>
                         <hr class="divider light my-4" />
-                        <p class="text-white-50 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore exercitationem temporibus molestiae incidunt sequi eligendi nobis, iste nostrum laudantium consequuntur culpa autem perferendis cupiditate! Deleniti reprehenderit esse dicta vel aliquam!</p>
-                        <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Vamos AHORA!</a>
+                        <p class="text-white-50 mb-4">creado por :  {{post.user.name}}     hace : {{post.added}}</p>
+                        <p class="text-white-50 mb-4">{{post.body.substr(0,200)}}...</p>
+                        <br><br>
+                        <!--<a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Vamos AHORA!</a>-->
                     </div>
                 </div>
             </div>
@@ -165,6 +169,8 @@
     </div>
 </template>
 <script>
+
+import {mapGetters, mapActions} from 'vuex' 
 import NavHome from '../components/NavHome'
 export default {
     name:'Home',
@@ -175,5 +181,18 @@ export default {
     },
 
     components:{NavHome},
+    computed:{
+        ...mapGetters({
+            publicaciones:'post/get_publicaciones'
+        })
+    },
+    methods:{
+        ...mapActions({
+            get_publicaciones:'post/get_todas_publicaciones',
+        }),
+    },
+    created(){
+        this.get_publicaciones()
+    },
 }
 </script>  
